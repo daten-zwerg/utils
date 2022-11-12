@@ -32,11 +32,16 @@ func SetProxy() {
 func NewMongodbUri() string {
 	host := GetEnv("MONGODB_HOST", "localhost")
 	port := GetEnv("MONGODB_PORT", "27017")
-	credentials := GetEnv("MONGODB_CREDENTIALS", "")
+	user := GetEnv("MONGODB_USER", "")
+	pwd := GetEnv("MONGODB_PWD", "")
+	db := GetEnv("MONGODB_NAME", "")
 
-	uri := fmt.Sprintf("mongodb://%s@%s:%s", credentials, host, port)
-	if credentials == "" {
+	uri := fmt.Sprintf("mongodb://%s:%s@%s:%s", user, pwd, host, port)
+	if user == "" {
 		uri = fmt.Sprintf("mongodb://%s:%s", host, port)
+	}
+	if db != "" {
+		uri += fmt.Sprintf("/%s", db)
 	}
 
 	return uri

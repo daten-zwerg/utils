@@ -1,4 +1,4 @@
-package helpers
+package utils
 
 import (
 	"os"
@@ -10,7 +10,7 @@ func TestNewMongodbUri(t *testing.T) {
 	os.Setenv("MONGODB_NAME", "test")
 	want := "mongodb://localhost:27017/test"
 
-	got := NewMongodbUri()
+	got := GetMongodbUri()
 
 	if got != want {
 		t.Errorf("invalid created uri, got %s, want %s", got, want)

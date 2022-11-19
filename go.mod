@@ -1,4 +1,4 @@
-module github.com/daten-zwerg/utils
+module github.com/datenzwerg/utils
 
 go 1.19
 

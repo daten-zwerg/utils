@@ -1,7 +1,5 @@
 module github.com/daten-zwerg/utils
 
-replace github.com/datenzwerg/utils => github.com/daten-zwerg/utils latest
-
 go 1.19
 
 require google.golang.org/api v0.103.0
